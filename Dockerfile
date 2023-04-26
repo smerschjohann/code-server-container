@@ -10,5 +10,5 @@ RUN sudo groupadd -g 998 docker && \
 COPY --from=docker/buildx-bin:latest /buildx /usr/libexec/docker/cli-plugins/docker-buildx
 
 RUN  sudo apt-get update && \
-     sudo apt-get install -y jq zstd python3 vim fzf bash-completion python3-pip
+     sudo apt-get install -y jq zstd python3 vim fzf bash-completion python3-pip tmux
 
