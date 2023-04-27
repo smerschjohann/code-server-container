@@ -91,3 +91,7 @@ fi
 export SSH_AUTH_SOCK=~/.ssh/ssh_auth_sock
 
 alias jqs="jq '.data | map_values(@base64d)'"
+
+if [[ "$TERM_PROGRAM" == "vscode" ]]; then
+  export EDITOR="code-server --wait"
+fi
