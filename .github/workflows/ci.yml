@@ -37,4 +37,4 @@ jobs:
           context: .
           push: true
           platforms: linux/arm64,linux/amd64
-          tags: ghcr.io/smerschjohann/code-server/code-server:latest
+          tags: ghcr.io/smerschjohann/code-server-container/code-server:latest

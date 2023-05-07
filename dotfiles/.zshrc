@@ -16,7 +16,8 @@ fi
 # thanks to https://github.com/mattmc3/zsh_unplugged
 function plugin-load {
   local repo plugdir initfile initfiles=()
-  ZPLUGINDIR=${ZPLUGINDIR:-${ZDOTDIR:-$HOME/.config/zsh}/plugins}
+  #ZPLUGINDIR=${ZPLUGINDIR:-${ZDOTDIR:-$HOME/.config/zsh}/plugins}
+  ZPLUGINDIR=${ZPLUGINDIR:-$HOME/.config/zsh/plugins}
   for repo in $@; do
     plugdir=$ZPLUGINDIR/${repo:t}
     initfile=$plugdir/${repo:t}.plugin.zsh
@@ -95,3 +96,7 @@ alias jqs="jq '.data | map_values(@base64d)'"
 if [[ "$TERM_PROGRAM" == "vscode" ]]; then
   export EDITOR="code-server --wait"
 fi
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
