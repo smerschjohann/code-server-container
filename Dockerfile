@@ -11,10 +11,10 @@ RUN if [[ "$TARGETARCH" == "arm64" ]]; then DOCKERARCH="aarch64"; GOARCH="arm64"
     # docker static binary, to allow DIND or remote docker
     sudo groupadd -g 998 docker && \
     sudo usermod -a -G docker coder && \
-    curl -sL https://download.docker.com/linux/static/stable/${DOCKERARCH}/docker-23.0.4.tgz | sudo tar --strip-components 1 -xzf - -C /usr/local/bin && \
+    curl -sL https://download.docker.com/linux/static/stable/${DOCKERARCH}/docker-23.0.5.tgz | sudo tar --strip-components 1 -xzf - -C /usr/local/bin && \
     sudo mkdir -p /usr/libexec/docker/cli-plugins/ && \
     # go binaries
-    curl -sL https://go.dev/dl/go1.20.3.linux-${GOARCH}.tar.gz | sudo tar xzf - -C /usr/local && \
+    curl -sL https://go.dev/dl/$(curl 'https://go.dev/VERSION?m=text').linux-${GOARCH}.tar.gz | sudo tar xzf - -C /usr/local && \
     sudo ln -s /usr/local/go/bin/go /usr/local/bin/ && \
     # nvm to allow easily installing node, if required
     curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash && \
@@ -38,7 +38,5 @@ RUN  sudo sed -i 's/bullseye main/bullseye main contrib non-free/g' /etc/apt/sou
      sudo apt-get install -y jq python3 vim fzf bash-completion python3-pip tmux zstd zip p7zip-rar quilt \
             build-essential g++ libx11-dev libxkbfile-dev libsecret-1-dev python-is-python3 acl && \
      sudo apt-get clean
-
-
 
 RUN sudo chown -R coder:coder /home/coder && chmod +x /home/coder/.local/bin/* && sudo chmod +x /usr/local/bin/* && mkdir -p /home/coder/.ssh
