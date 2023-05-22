@@ -54,7 +54,7 @@ repos=(
   Tarrasch/zsh-bd
   zsh-users/zsh-autosuggestions
   zsh-users/zsh-history-substring-search
-  zdharma-continuum/fast-syntax-highlighting
+  zsh-users/zsh-syntax-highlighting
 )
 plugin-load $repos
 
