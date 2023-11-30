@@ -1,4 +1,4 @@
-FROM codercom/code-server:4.17.1-bullseye
+FROM codercom/code-server:4.19.1-bullseye
 
 ARG TARGETARCH
 
